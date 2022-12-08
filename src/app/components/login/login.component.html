@@ -9,17 +9,26 @@
                             Please enter your login and password!
                         </p>
 
-                        <form>
+                        <form
+                            [formGroup]="loginForm"
+                            (ngSubmit)="submitLogin()"
+                        >
                             <div class="form-outline form-white mb-4">
                                 <input
                                     type="email"
                                     id="typeEmailX"
                                     class="form-control form-control-lg"
+                                    formControlName="email"
                                 />
                                 <label class="form-label" for="typeEmailX">
                                     Email
                                 </label>
-                                <p>
+                                <p
+                                    *ngIf="
+                                        this.loginForm.get('email')?.invalid &&
+                                        this.loginForm.get('email')?.touched
+                                    "
+                                >
                                     <small class="text-danger">
                                         Email is required
                                     </small>
@@ -31,17 +40,25 @@
                                     type="password"
                                     id="typePasswordX"
                                     class="form-control form-control-lg"
+                                    formControlName="password"
                                 />
                                 <label class="form-label" for="typePasswordX">
                                     Password
                                 </label>
-                                <p>
+                                <p
+                                    *ngIf="
+                                        this.loginForm.get('password')
+                                            ?.invalid &&
+                                        this.loginForm.get('password')?.touched
+                                    "
+                                >
                                     <small class="text-danger">
                                         Password is required (min. length = 8)
                                     </small>
                                 </p>
                             </div>
                             <button
+                                [disabled]="loginForm.invalid"
                                 class="btn btn-outline-light btn-lg px-5"
                                 type="submit"
                             >
