@@ -6,6 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
+    {
+        path: 'admin',
+        loadChildren: () =>
+            import('./components/admin/admin.module').then(
+                (m) => m.AdminModule
+            ),
+    },
     { path: '**', component: NotFoundComponent },
 ];
 
