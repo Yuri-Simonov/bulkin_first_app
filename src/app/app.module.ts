@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AdminModule } from './components/admin/admin.module';
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, NotFoundComponent],
@@ -15,6 +16,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
         NgbModule,
         FormsModule,
         ReactiveFormsModule,
+        AdminModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
