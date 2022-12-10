@@ -9,19 +9,15 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { ContactsDetailsComponent } from './components/contacts-details/contacts-details.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
-
 @NgModule({
-  declarations: [
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    ContactsComponent,
-    ContactsDetailsComponent,
-    AdminDashboardComponent
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule
-  ]
+    declarations: [
+        FooterComponent,
+        HeaderComponent,
+        HomeComponent,
+        ContactsComponent,
+        ContactsDetailsComponent,
+        AdminDashboardComponent,
+    ],
+    imports: [CommonModule, AdminRoutingModule],
 })
-export class AdminModule { }
+export class AdminModule {}

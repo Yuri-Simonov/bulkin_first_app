@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactsDetailsComponent } from './components/contacts-details/contacts-details.component';
 import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
         ],
     },
+    { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
