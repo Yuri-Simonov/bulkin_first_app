@@ -6,13 +6,18 @@ import { ContactsDetailsComponent } from './components/contacts-details/contacts
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { UserResolver } from './resolvers/user.resolver';
+import { UsersResolver } from './resolvers/users.resolver';
 
 const routes: Routes = [
     {
         path: '',
         component: AdminDashboardComponent,
         children: [
-            { path: 'contacts', component: ContactsComponent },
+            {
+                path: 'contacts',
+                component: ContactsComponent,
+                resolve: { users: UsersResolver },
+            },
             {
                 path: 'contacts/user/:id',
                 component: ContactsDetailsComponent,

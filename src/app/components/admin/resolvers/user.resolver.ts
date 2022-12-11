@@ -13,13 +13,13 @@ import { User } from '../user';
     providedIn: 'root',
 })
 export class UserResolver implements Resolve<User> {
-    constructor(private admibService: AdminService, private router: Router) {}
+    constructor(private adminService: AdminService, private router: Router) {}
 
     resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<User> {
-        return this.admibService.getPerson(route.params?.['id']).pipe(
+        return this.adminService.getPerson(route.params?.['id']).pipe(
             delay(2000),
             catchError(() => {
                 this.router.navigate(['admin/contacts']);
