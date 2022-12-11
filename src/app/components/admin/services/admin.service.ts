@@ -16,7 +16,7 @@ export class AdminService {
 
     getPerson(id: number) {
         return this.http.get<User>(
-            `https://jsonplaceholder.typicode.com/user/${id}`
+            `https://jsonplaceholder.typicode.com/users/${id}`
         );
     }
 }

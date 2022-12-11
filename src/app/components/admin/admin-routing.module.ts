@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactsDetailsComponent } from './components/contacts-details/contacts-details.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
+import { UserResolver } from './resolvers/user.resolver';
 
 const routes: Routes = [
     {
@@ -12,7 +13,16 @@ const routes: Routes = [
         component: AdminDashboardComponent,
         children: [
             { path: 'contacts', component: ContactsComponent },
-            { path: 'contacts/user/:id', component: ContactsDetailsComponent },
+            {
+                path: 'contacts/user/:id',
+                component: ContactsDetailsComponent,
+                resolve: { user: UserResolver },
+            },
+            {
+                path: 'contacts/user',
+                redirectTo: 'contacts',
+                pathMatch: 'full',
+            },
             { path: 'home', component: HomeComponent },
             { path: '', redirectTo: 'home', pathMatch: 'full' },
         ],
